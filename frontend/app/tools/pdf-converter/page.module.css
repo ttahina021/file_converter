@@ -1,0 +1,180 @@
+.main {
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.formatSelector {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.formatTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.formatButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.formatButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #667eea;
+  background: #f8f9ff;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.formatButton:hover {
+  background: #f0f2ff;
+  transform: translateY(-2px);
+}
+
+.formatButtonActive {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.formatButtonActive:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-2px);
+}
+
+.formatIcon {
+  font-size: 2rem;
+}
+
+.formatLabel {
+  font-size: 0.95rem;
+}
+
+.uploadArea {
+  margin-bottom: 20px;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileLabel {
+  display: block;
+  padding: 20px;
+  border: 3px dashed #667eea;
+  border-radius: 10px;
+  background: #f8f9ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #667eea;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.fileLabel:hover {
+  background: #f0f2ff;
+  border-color: #764ba2;
+  transform: translateY(-2px);
+}
+
+.convertButton {
+  width: 100%;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.convertButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.convertButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  background: #fee;
+  color: #c33;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border-left: 4px solid #c33;
+}
+
+.success {
+  background: #efe;
+  color: #3c3;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border-left: 4px solid #3c3;
+}
+
+.infoBox {
+  margin-top: 30px;
+  padding: 15px;
+  background: #fff3cd;
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+}
+
+.infoText {
+  color: #856404;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: left;
+}
+

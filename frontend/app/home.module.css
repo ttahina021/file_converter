@@ -1,0 +1,134 @@
+.main {
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.description {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 50px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.toolCard {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.toolCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.toolCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.toolCard:hover::before {
+  transform: scaleX(1);
+}
+
+.toolIcon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.toolName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.toolDescription {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.toolArrow {
+  font-size: 1.5rem;
+  color: #667eea;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.toolCard:hover .toolArrow {
+  transform: translateX(5px);
+}
+
+.infoBox {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.infoText {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .toolsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
