@@ -110,7 +110,7 @@ export default function SupportPage() {
           {/* Bouton Buy Me a Coffee */}
           <div className={styles.ctaSection}>
             <a
-              href="https://buymeacoffee.com/ttahina"
+              href="https://buymeacoffee.com/convifree"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.coffeeButton}

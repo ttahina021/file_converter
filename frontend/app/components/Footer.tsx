@@ -51,7 +51,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://buymeacoffee.com/ttahina"
+                  href="https://buymeacoffee.com/convifree"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.footerLink}

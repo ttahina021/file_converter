@@ -18,7 +18,7 @@ export default function Navigation() {
           <div className={styles.logoContainer}>
             <Image
               src="/images/logo.png"
-              alt="ConviFree"
+              alt="ConviFree - Logo"
               width={40}
               height={40}
               className={styles.logoImage}
