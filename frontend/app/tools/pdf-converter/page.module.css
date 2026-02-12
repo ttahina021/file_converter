@@ -22,7 +22,7 @@
   font-weight: 700;
   color: #333;
   margin-bottom: 10px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -30,7 +30,7 @@
 
 .description {
   font-size: 1.1rem;
-  color: #666;
+  color: #20B2AA;
   margin-bottom: 30px;
 }
 
@@ -61,27 +61,27 @@
   padding: 20px;
   font-size: 1rem;
   font-weight: 600;
-  color: #667eea;
-  background: #f8f9ff;
-  border: 2px solid #667eea;
+  color: #20B2AA;
+  background: #f5f5f5;
+  border: 2px solid #20B2AA;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .formatButton:hover {
-  background: #f0f2ff;
+  background: #e8e8e8;
   transform: translateY(-2px);
 }
 
 .formatButtonActive {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%);
   color: white;
   border-color: transparent;
 }
 
 .formatButtonActive:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%);
   transform: translateY(-2px);
 }
 
@@ -104,19 +104,19 @@
 .fileLabel {
   display: block;
   padding: 20px;
-  border: 3px dashed #667eea;
+  border: 3px dashed #20B2AA;
   border-radius: 10px;
-  background: #f8f9ff;
+  background: #f5f5f5;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #667eea;
+  color: #20B2AA;
   font-weight: 500;
   font-size: 1.1rem;
 }
 
 .fileLabel:hover {
-  background: #f0f2ff;
-  border-color: #764ba2;
+  background: #e8e8e8;
+  border-color: #20B2AA;
   transform: translateY(-2px);
 }
 
@@ -126,7 +126,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%);
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -136,7 +136,7 @@
 
 .convertButton:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .convertButton:disabled {

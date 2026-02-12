@@ -21,5 +21,19 @@ export const tools: Tool[] = [
     path: '/tools/pdf-converter',
     description: 'Convertissez vos fichiers PDF en Word, Excel ou PowerPoint'
   },
+  {
+    id: 'image-converter',
+    name: 'Convertisseur d\'images',
+    icon: '🖼️',
+    path: '/tools/image-converter',
+    description: 'Convertissez vos images entre PNG, JPG, WebP et SVG'
+  },
+  {
+    id: 'qr-generator',
+    name: 'Générateur QR Code',
+    icon: '📱',
+    path: '/tools/qr-generator',
+    description: 'Générez des QR codes personnalisés avec logo et couleurs'
+  },
 ]
 

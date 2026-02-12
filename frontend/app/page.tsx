@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { tools } from './config/tools'
 import styles from './home.module.css'
 
@@ -6,6 +7,16 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
+        <div className={styles.logoSection}>
+          <Image
+            src="/images/logo.png"
+            alt="ConvertirFacile"
+            width={120}
+            height={120}
+            className={styles.homeLogo}
+            priority
+          />
+        </div>
         <h1 className={styles.title}>Bienvenue dans la Boîte à outils</h1>
         <p className={styles.description}>
           Collection d'outils pratiques pour convertir et manipuler vos fichiers

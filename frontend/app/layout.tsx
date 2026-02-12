@@ -1,10 +1,16 @@
 import type { Metadata } from 'next'
 import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Boîte à outils - Convertisseurs de fichiers',
+  title: 'ConvertirFacile - Outils de conversion gratuits',
   description: 'Collection d\'outils pratiques pour convertir et manipuler vos fichiers',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -17,6 +23,7 @@ export default function RootLayout({
       <body>
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   )

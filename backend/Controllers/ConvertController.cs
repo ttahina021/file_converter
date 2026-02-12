@@ -13,6 +13,14 @@ using DocumentFormat.OpenXml.Drawing;
 using A = DocumentFormat.OpenXml.Drawing;
 using P = DocumentFormat.OpenXml.Presentation;
 using System.Text;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Formats.Webp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.PixelFormats;
+using Svg;
+using QRCoder;
 
 namespace FileConverter.Controllers;
 
@@ -372,5 +380,170 @@ public class ConvertController : ControllerBase
         }
         await Task.CompletedTask;
     }
+
+    [HttpPost("image")]
+    public async Task<IActionResult> ConvertImage(IFormFile file, [FromForm] string outputFormat)
+    {
+        if (file == null || file.Length == 0)
+        {
+            return BadRequest(new { message = "Aucun fichier fourni" });
+        }
+
+        var validFormats = new[] { "png", "jpg", "jpeg", "webp", "svg" };
+        var fileExtension = System.IO.Path.GetExtension(file.FileName).ToLower().TrimStart('.');
+        
+        if (!validFormats.Contains(fileExtension))
+        {
+            return BadRequest(new { message = "Format d'image non supporté" });
+        }
+
+        if (string.IsNullOrEmpty(outputFormat) || !validFormats.Contains(outputFormat.ToLower()))
+        {
+            return BadRequest(new { message = "Format de sortie invalide. Utilisez 'png', 'jpg', 'webp' ou 'svg'" });
+        }
+
+        try
+        {
+            var outputFormatLower = outputFormat.ToLower();
+            MemoryStream outputStream = new MemoryStream();
+            string contentType;
+
+            using (var inputStream = file.OpenReadStream())
+            {
+                // Si le format de sortie est SVG, c'est plus complexe
+                if (outputFormatLower == "svg")
+                {
+                    return BadRequest(new { message = "La conversion vers SVG n'est pas supportée depuis les formats raster" });
+                }
+
+                // Charger l'image
+                using var image = await Image.LoadAsync(inputStream);
+
+                // Convertir selon le format demandé
+                switch (outputFormatLower)
+                {
+                    case "png":
+                        await image.SaveAsync(outputStream, new PngEncoder());
+                        contentType = "image/png";
+                        break;
+
+                    case "jpg":
+                    case "jpeg":
+                        await image.SaveAsync(outputStream, new JpegEncoder { Quality = 90 });
+                        contentType = "image/jpeg";
+                        break;
+
+                    case "webp":
+                        await image.SaveAsync(outputStream, new WebpEncoder { Quality = 90 });
+                        contentType = "image/webp";
+                        break;
+
+                    default:
+                        return BadRequest(new { message = "Format de sortie non supporté" });
+                }
+            }
+
+            outputStream.Position = 0;
+            var fileName = System.IO.Path.GetFileNameWithoutExtension(file.FileName) + 
+                          (outputFormatLower == "jpg" || outputFormatLower == "jpeg" ? ".jpg" : $".{outputFormatLower}");
+            
+            return File(outputStream, contentType, fileName);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = $"Erreur lors de la conversion: {ex.Message}" });
+        }
+    }
+
+    [HttpPost("qr-code")]
+    public async Task<IActionResult> GenerateQrCode(
+        [FromForm] string text,
+        [FromForm] string foregroundColor = "#000000",
+        [FromForm] string backgroundColor = "#FFFFFF",
+        [FromForm] int size = 300,
+        IFormFile? logo = null)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return BadRequest(new { message = "Le texte ne peut pas être vide" });
+        }
+
+        if (size < 100 || size > 1000)
+        {
+            return BadRequest(new { message = "La taille doit être entre 100 et 1000 pixels" });
+        }
+
+        try
+        {
+            // Parser les couleurs
+            var fgColor = System.Drawing.ColorTranslator.FromHtml(foregroundColor);
+            var bgColor = System.Drawing.ColorTranslator.FromHtml(backgroundColor);
+
+            // Générer le QR code avec les couleurs personnalisées
+            using var qrGenerator = new QRCodeGenerator();
+            var qrCodeData = qrGenerator.CreateQrCode(text, QRCodeGenerator.ECCLevel.Q);
+            using var qrCode = new PngByteQRCode(qrCodeData);
+            
+            // Générer le QR code en bytes avec les couleurs
+            var qrCodeBytes = qrCode.GetGraphic(20, new byte[] { fgColor.R, fgColor.G, fgColor.B }, new byte[] { bgColor.R, bgColor.G, bgColor.B });
+
+            // Charger l'image du QR code avec ImageSharp
+            using var qrImage = Image.Load<Rgba32>(qrCodeBytes);
+            
+            // Redimensionner si nécessaire
+            if (qrImage.Width != size || qrImage.Height != size)
+            {
+                qrImage.Mutate(x => x.Resize(size, size));
+            }
+
+            // Ajouter le logo si fourni
+            if (logo != null && logo.Length > 0)
+            {
+                using var logoStream = logo.OpenReadStream();
+                using var logoImage = await Image.LoadAsync(logoStream);
+                
+                // Redimensionner le logo (environ 20% de la taille du QR code)
+                var logoSize = (int)(size * 0.2f);
+                logoImage.Mutate(x => x.Resize(new ResizeOptions
+                {
+                    Size = new SixLabors.ImageSharp.Size(logoSize, logoSize),
+                    Mode = ResizeMode.Max
+                }));
+
+                // Calculer la position pour centrer le logo
+                var x = (size - logoSize) / 2;
+                var y = (size - logoSize) / 2;
+
+                // Dessiner le logo au centre avec un fond blanc
+                var whiteSize = (int)(size * 0.25f);
+                var whiteX = (size - whiteSize) / 2;
+                var whiteY = (size - whiteSize) / 2;
+
+                qrImage.Mutate(ctx =>
+                {
+                    // Créer un rectangle blanc pour le fond du logo
+                    using var whiteRect = new Image<Rgba32>(whiteSize, whiteSize);
+                    whiteRect.Mutate(w => w.BackgroundColor(new Rgba32(255, 255, 255, 255)));
+                    
+                    // Dessiner le fond blanc
+                    ctx.DrawImage(whiteRect, new SixLabors.ImageSharp.Point(whiteX, whiteY), 1f);
+                    // Dessiner le logo
+                    ctx.DrawImage(logoImage, new SixLabors.ImageSharp.Point(x, y), 1f);
+                });
+            }
+
+            // Sauvegarder l'image finale
+            var outputStream = new MemoryStream();
+            await qrImage.SaveAsync(outputStream, new PngEncoder());
+            outputStream.Position = 0;
+
+            return File(outputStream, "image/png", "qrcode.png");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = $"Erreur lors de la génération du QR code: {ex.Message}" });
+        }
+    }
+
 }
 

@@ -1,0 +1,233 @@
+.gridContainer {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.gridHeader {
+  background: #f8f8f8;
+  padding: 10px 15px;
+  border-bottom: 1px solid #d0d0d0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.gridInfo {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toolbarButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: white;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.toolbarButton:hover {
+  background: #e8e8e8;
+  border-color: #999;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toolbarButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.buttonIcon {
+  font-size: 1rem;
+}
+
+.buttonText {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .gridHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toolbar {
+    width: 100%;
+  }
+
+  .toolbarButton {
+    flex: 1;
+    justify-content: center;
+    min-width: 120px;
+  }
+
+  .buttonText {
+    font-size: 0.85rem;
+  }
+}
+
+.gridWrapper {
+  overflow: auto;
+  max-height: 600px;
+  border: 1px solid #d0d0d0;
+}
+
+.grid {
+  display: inline-block;
+  min-width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.cornerCell {
+  width: 50px;
+  min-width: 50px;
+  background: #f0f0f0;
+  border-right: 1px solid #d0d0d0;
+  border-bottom: 1px solid #d0d0d0;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+.rowNumber {
+  width: 50px;
+  min-width: 50px;
+  background: #f0f0f0;
+  border-right: 1px solid #d0d0d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 12px;
+  font-weight: 500;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  user-select: none;
+}
+
+.headerCell {
+  min-width: 150px;
+  background: #e8e8e8;
+  border-right: 1px solid #d0d0d0;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.columnLabel {
+  font-size: 11px;
+  color: #777;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.headerText {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.cell {
+  min-width: 150px;
+  width: 150px;
+  border-right: 1px solid #e5e5e5;
+  padding: 4px 8px;
+  cursor: cell;
+  background: white;
+  position: relative;
+  min-height: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.cell:hover {
+  background: #f5f5f5;
+}
+
+.cellSelected {
+  background: #e0e0e0 !important;
+  outline: 2px solid #888;
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.cellContent {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+}
+
+.cellInput {
+  width: 100%;
+  border: none;
+  outline: 2px solid #888;
+  padding: 2px 4px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  color: #333;
+}
+
+/* Scrollbar styling */
+.gridWrapper::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.gridWrapper::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.gridWrapper::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+  border-radius: 6px;
+}
+
+.gridWrapper::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+

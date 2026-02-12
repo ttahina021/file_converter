@@ -30,20 +30,35 @@
 
 .description {
   font-size: 1.1rem;
-  color: #20B2AA;
+  color: #666;
   margin-bottom: 30px;
 }
 
-.modeSelector {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  justify-content: center;
+.formatSelector {
+  margin-bottom: 30px;
+  text-align: left;
 }
 
-.modeButton {
-  flex: 1;
-  padding: 12px 20px;
+.formatTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.formatButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.formatButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
   font-size: 1rem;
   font-weight: 600;
   color: #20B2AA;
@@ -54,20 +69,28 @@
   transition: all 0.3s ease;
 }
 
-.modeButton:hover {
+.formatButton:hover {
   background: #e8e8e8;
   transform: translateY(-2px);
 }
 
-.modeButtonActive {
+.formatButtonActive {
   background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%);
   color: white;
   border-color: transparent;
 }
 
-.modeButtonActive:hover {
+.formatButtonActive:hover {
   background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%);
   transform: translateY(-2px);
+}
+
+.formatIcon {
+  font-size: 2rem;
+}
+
+.formatLabel {
+  font-size: 0.95rem;
 }
 
 .uploadArea {
@@ -95,6 +118,34 @@
   background: #e8e8e8;
   border-color: #20B2AA;
   transform: translateY(-2px);
+}
+
+.previewArea {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.previewTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.previewContainer {
+  display: inline-block;
+  max-width: 100%;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fafafa;
+}
+
+.previewImage {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 .convertButton {
@@ -139,62 +190,19 @@
   border-left: 4px solid #3c3;
 }
 
-.editorArea {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.jsonEditor {
-  width: 100%;
-  min-height: 300px;
+.infoBox {
+  margin-top: 30px;
   padding: 15px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.95rem;
-  border: 2px solid #20B2AA;
-  border-radius: 10px;
-  background: #f5f5f5;
-  color: #333;
-  resize: vertical;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.jsonEditor:focus {
-  border-color: #20B2AA;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-}
-
-.jsonEditor::placeholder {
-  color: #999;
-  font-style: italic;
-}
-
-.jsonError {
-  margin-top: 10px;
-  padding: 10px;
   background: #fff3cd;
-  color: #856404;
   border-radius: 8px;
-  font-size: 0.9rem;
   border-left: 4px solid #ffc107;
 }
 
-.gridSection {
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
-.gridTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.gridDescription {
-  font-size: 0.95rem;
-  color: #20B2AA;
-  margin-bottom: 15px;
+.infoText {
+  color: #856404;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: left;
 }
 
