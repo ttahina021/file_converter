@@ -10,7 +10,7 @@ export default function Home() {
         <div className={styles.logoSection}>
           <Image
             src="/images/logo.png"
-            alt="ConvertirFacile"
+              alt="ConviFree"
             width={120}
             height={120}
             className={styles.homeLogo}

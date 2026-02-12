@@ -18,13 +18,13 @@ export default function Navigation() {
           <div className={styles.logoContainer}>
             <Image
               src="/images/logo.png"
-              alt="ConvertirFacile"
+              alt="ConviFree"
               width={40}
               height={40}
               className={styles.logoImage}
               priority
             />
-            <span className={styles.logoText}>ConvertirFacile</span>
+            <span className={styles.logoText}>ConviFree</span>
           </div>
         </Link>
         

@@ -6,7 +6,7 @@ export default function SupportPage() {
     <main className={styles.main}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h1 className={styles.title}>☕ Soutenez ConvertirFacile</h1>
+          <h1 className={styles.title}>☕ Soutenez ConviFree</h1>
           <p className={styles.subtitle}>
             Une suite d'outils de conversion 100% gratuits et sans publicité intrusive
           </p>

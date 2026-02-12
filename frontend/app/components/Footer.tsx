@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
-            <h3 className={styles.footerTitle}>ConvertirFacile</h3>
+            <h3 className={styles.footerTitle}>ConviFree</h3>
             <p className={styles.footerDescription}>
               Outils de conversion gratuits et simples pour tous vos besoins
             </p>
@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className={styles.footerBottom}>
           <p className={styles.copyright}>
-            © {currentYear} ConvertirFacile. Tous droits réservés.
+            © {currentYear} ConviFree. Tous droits réservés.
           </p>
           <p className={styles.tagline}>
             Outils gratuits et simples pour convertir vos fichiers

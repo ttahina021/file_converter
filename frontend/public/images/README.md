@@ -1,4 +1,4 @@
-# Logo ConvertirFacile
+# Logo convifree
 
 Placez votre fichier logo ici.
 

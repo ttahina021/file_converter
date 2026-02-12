@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ConvertirFacile - Outils de conversion gratuits',
+  title: 'ConviFree - Outils de conversion gratuits',
   description: 'Collection d\'outils pratiques pour convertir et manipuler vos fichiers',
   icons: {
     icon: '/favicon.ico',
