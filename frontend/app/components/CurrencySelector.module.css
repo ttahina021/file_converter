@@ -1,0 +1,120 @@
+.currencySelector {
+  position: relative;
+  margin-left: 20px;
+}
+
+.currencyButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.currencyButton:hover {
+  border-color: #20B2AA;
+  background: #f0f9f8;
+}
+
+.currencySymbol {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #20B2AA;
+}
+
+.currencyCode {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.dropdownIcon {
+  font-size: 0.7rem;
+  color: #999;
+  margin-left: 4px;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.currencyOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: white;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-align: left;
+}
+
+.currencyOption:last-child {
+  border-bottom: none;
+}
+
+.currencyOption:hover {
+  background: #f0f9f8;
+}
+
+.currencyOptionActive {
+  background: #e0f7f5;
+  font-weight: 600;
+}
+
+.optionSymbol {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #20B2AA;
+  min-width: 30px;
+}
+
+.optionCode {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  min-width: 50px;
+}
+
+.optionName {
+  font-size: 0.85rem;
+  color: #666;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .currencySelector {
+    margin-left: 10px;
+  }
+
+  .currencyButton {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .dropdown {
+    right: 0;
+    left: auto;
+    min-width: 180px;
+  }
+}
+

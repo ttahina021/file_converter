@@ -30,7 +30,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/tools/image-converter" className={styles.footerLink}>
-                  Convertisseur d'images
+                  Convertisseur d&apos;images
                 </Link>
               </li>
               <li>
@@ -68,6 +68,11 @@ export default function Footer() {
               <li>
                 <Link href="/" className={styles.footerLink}>
                   Accueil
+                </Link>
+              </li>
+              <li>
+                <Link href="/a-propos" className={styles.footerLink}>
+                  À propos de nous
                 </Link>
               </li>
               <li>

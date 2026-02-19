@@ -1,0 +1,21 @@
+.main { width: 100%; min-height: calc(100vh - 100px); display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px; }
+.container { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-width: 900px; width: 100%; }
+.title { font-size: 2.5rem; font-weight: 700; color: #333; margin-bottom: 10px; text-align: center; background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.description { font-size: 1.1rem; color: #20B2AA; margin-bottom: 30px; text-align: center; }
+.operationSelector { display: flex; gap: 15px; margin-bottom: 25px; justify-content: center; }
+.operationButton { flex: 1; padding: 15px 20px; font-size: 1rem; font-weight: 600; color: #20B2AA; background: #f5f5f5; border: 2px solid #20B2AA; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; }
+.operationButton:hover { background: #e8e8e8; transform: translateY(-2px); }
+.operationButtonActive { background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); color: white; border-color: transparent; }
+.inputArea, .outputArea { margin-bottom: 20px; }
+.label { display: block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 0.95rem; }
+.textarea { width: 100%; min-height: 200px; padding: 15px; font-family: 'Courier New', monospace; font-size: 0.9rem; border: 2px solid #e0e0e0; border-radius: 8px; resize: vertical; }
+.textarea:focus { outline: none; border-color: #20B2AA; box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.1); }
+.button { width: 100%; padding: 15px 30px; font-size: 1.1rem; font-weight: 600; color: white; background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 20px; }
+.button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+.button:disabled { opacity: 0.6; cursor: not-allowed; }
+.copyButton { margin-top: 10px; padding: 8px 16px; font-size: 0.9rem; background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 6px; cursor: pointer; }
+.error { background: #fee; color: #c33; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #c33; }
+.infoBox { margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107; }
+.infoText { color: #856404; font-size: 0.9rem; line-height: 1.5; margin: 0; text-align: left; }
+@media (max-width: 768px) { .container { padding: 25px; } .title { font-size: 2rem; } .operationSelector { flex-direction: column; } }
+

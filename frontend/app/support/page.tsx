@@ -8,7 +8,7 @@ export default function SupportPage() {
         <div className={styles.header}>
           <h1 className={styles.title}>☕ Soutenez ConviFree</h1>
           <p className={styles.subtitle}>
-            Une suite d'outils de conversion 100% gratuits et sans publicité intrusive
+            Une suite d&apos;outils de conversion 100% gratuits et sans publicité intrusive
           </p>
         </div>
 
@@ -18,7 +18,7 @@ export default function SupportPage() {
             <h2 className={styles.sectionTitle}>🎯 Ce que nous proposons</h2>
             <ul className={styles.featuresList}>
               <li>✅ Conversion JSON → Excel, PDF → Office, Images, QR Codes</li>
-              <li>✅ Outils sans limite d'utilisation</li>
+              <li>✅ Outils sans limite d&apos;utilisation</li>
               <li>✅ Aucune inscription requise</li>
               <li>✅ Vos fichiers restent privés (traitement local)</li>
             </ul>
@@ -126,7 +126,7 @@ export default function SupportPage() {
           {/* Retour */}
           <div className={styles.backSection}>
             <Link href="/" className={styles.backLink}>
-              ← Retour à l'accueil
+              ← Retour à l&apos;accueil
             </Link>
           </div>
         </div>

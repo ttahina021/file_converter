@@ -1,30 +1,50 @@
 import { MetadataRoute } from 'next'
-import { tools } from './config/tools'
+import { menuCategories } from './config/tools'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://convifree.com'
-  
-  const routes = [
+  const currentDate = new Date()
+
+  // Page d'accueil
+  const routes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
       priority: 1,
     },
     {
       url: `${baseUrl}/support`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
-    ...tools.map((tool) => ({
-      url: `${baseUrl}${tool.path}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    })),
   ]
+
+  // Ajouter toutes les pages d'outils
+  menuCategories.forEach((category) => {
+    // Page de catégorie si elle a un path
+    if (category.path) {
+      routes.push({
+        url: `${baseUrl}${category.path}`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      })
+    }
+
+    // Pages des outils
+    category.submenus.forEach((tool) => {
+      if (tool.path) {
+        routes.push({
+          url: `${baseUrl}${tool.path}`,
+          lastModified: currentDate,
+          changeFrequency: 'monthly',
+          priority: 0.7,
+        })
+      }
+    })
+  })
 
   return routes
 }
-

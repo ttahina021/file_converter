@@ -103,7 +103,7 @@ export default function JsonToExcelPage() {
         } else {
           // Mode éditeur
           if (!jsonToConvert.trim()) {
-            setError('Veuillez saisir du JSON dans l\'éditeur')
+            setError('Veuillez saisir du JSON dans l&apos;éditeur')
             setLoading(false)
             return
           }
@@ -160,7 +160,7 @@ export default function JsonToExcelPage() {
       <div className={styles.container}>
         <h1 className={styles.title}>Convertisseur JSON vers Excel</h1>
         <p className={styles.description}>
-          Téléchargez votre fichier JSON ou saisissez-le directement dans l'éditeur
+          Téléchargez votre fichier JSON ou saisissez-le directement dans l&apos;éditeur
         </p>
 
         {/* Sélecteur de mode */}

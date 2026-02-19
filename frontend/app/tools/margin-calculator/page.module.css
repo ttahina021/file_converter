@@ -1,0 +1,24 @@
+.main { width: 100%; min-height: calc(100vh - 100px); display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px; }
+.container { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-width: 700px; width: 100%; text-align: center; }
+.title { font-size: 2.5rem; font-weight: 700; color: #333; margin-bottom: 10px; background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.description { font-size: 1.1rem; color: #20B2AA; margin-bottom: 30px; }
+.typeSelector { display: flex; gap: 10px; margin-bottom: 25px; justify-content: center; flex-wrap: wrap; }
+.typeButton { flex: 1; min-width: 150px; padding: 12px 16px; font-size: 0.9rem; font-weight: 600; color: #20B2AA; background: #f5f5f5; border: 2px solid #20B2AA; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+.typeButton:hover { background: #e8e8e8; }
+.typeButtonActive { background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); color: white; border-color: transparent; }
+.inputArea { margin-bottom: 20px; }
+.formGroup { margin-bottom: 15px; text-align: left; }
+.formGroup label { display: block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 0.95rem; }
+.input { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1.1rem; }
+.calculateButton { width: 100%; padding: 15px 30px; font-size: 1.2rem; font-weight: 600; color: white; background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; }
+.calculateButton:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+.resultsBox { margin-top: 25px; padding: 20px; background: #f0f9f8; border: 2px solid #20B2AA; border-radius: 10px; }
+.resultItem { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #e0e0e0; }
+.resultItem:last-child { border-bottom: none; }
+.resultLabel { font-weight: 500; color: #333; }
+.resultValue { font-weight: 600; color: #20B2AA; font-size: 1.1rem; }
+.resultValueHighlight { font-weight: 700; color: #008B8B; font-size: 1.3rem; }
+.infoBox { margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107; }
+.infoText { color: #856404; font-size: 0.9rem; line-height: 1.5; margin: 0; text-align: left; }
+@media (max-width: 768px) { .container { padding: 25px; } .title { font-size: 2rem; } .typeSelector { flex-direction: column; } }
+

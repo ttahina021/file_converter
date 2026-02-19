@@ -1,0 +1,26 @@
+.main { width: 100%; min-height: calc(100vh - 100px); display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px; }
+.container { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-width: 900px; width: 100%; }
+.title { font-size: 2.5rem; font-weight: 700; color: #333; margin-bottom: 10px; text-align: center; background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.description { font-size: 1.1rem; color: #20B2AA; margin-bottom: 30px; text-align: center; }
+.formSection { margin-bottom: 30px; }
+.formGroup { margin-bottom: 20px; }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.label { display: block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 0.95rem; }
+.input { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; font-family: inherit; }
+.input:focus { outline: none; border-color: #20B2AA; }
+.inputRow { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
+.inputRow .input { flex: 1; }
+.removeButton { padding: 8px 12px; background: #ff4444; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+.removeButton:hover { background: #cc0000; }
+.addButton { padding: 8px 16px; background: #20B2AA; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-top: 5px; }
+.addButton:hover { background: #008B8B; }
+.generateButton { width: 100%; padding: 15px 30px; font-size: 1.2rem; font-weight: 600; color: white; background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; }
+.generateButton:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+.resultSection { margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 10px; border: 2px solid #20B2AA; }
+.resultHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.resultHeader h3 { margin: 0; color: #333; }
+.copyButton { padding: 8px 16px; background: #20B2AA; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+.copyButton:hover { background: #008B8B; }
+.codeBlock { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; }
+@media (max-width: 768px) { .container { padding: 25px; } .title { font-size: 2rem; } .formRow { grid-template-columns: 1fr; } }
+

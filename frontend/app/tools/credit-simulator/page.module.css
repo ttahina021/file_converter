@@ -1,0 +1,25 @@
+.main { width: 100%; min-height: calc(100vh - 100px); display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px; }
+.container { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-width: 900px; width: 100%; text-align: center; }
+.title { font-size: 2.5rem; font-weight: 700; color: #333; margin-bottom: 10px; background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.description { font-size: 1.1rem; color: #20B2AA; margin-bottom: 30px; }
+.inputArea { margin-bottom: 20px; }
+.formGroup { margin-bottom: 15px; text-align: left; }
+.formGroup label { display: block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 0.95rem; }
+.input { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1.1rem; }
+.calculateButton { width: 100%; padding: 15px 30px; font-size: 1.2rem; font-weight: 600; color: white; background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%); border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; }
+.calculateButton:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+.resultsBox { margin-top: 25px; }
+.summaryBox { padding: 20px; background: #f0f9f8; border: 2px solid #20B2AA; border-radius: 10px; margin-bottom: 20px; }
+.summaryItem { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #e0e0e0; }
+.summaryItem:last-child { border-bottom: none; }
+.summaryLabel { font-weight: 500; color: #333; }
+.summaryValue { font-weight: 700; color: #008B8B; font-size: 1.2rem; }
+.scheduleBox { padding: 20px; background: #f9f9f9; border-radius: 10px; }
+.scheduleTitle { font-size: 1.1rem; font-weight: 600; color: #333; margin-bottom: 15px; text-align: left; }
+.scheduleTable { display: flex; flex-direction: column; gap: 8px; }
+.scheduleHeader { display: grid; grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr; gap: 10px; padding: 10px; background: #e8f5f4; border-radius: 6px; font-weight: 600; color: #333; }
+.scheduleRow { display: grid; grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr; gap: 10px; padding: 10px; background: white; border-radius: 6px; border: 1px solid #e0e0e0; }
+.infoBox { margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107; }
+.infoText { color: #856404; font-size: 0.9rem; line-height: 1.5; margin: 0; text-align: left; }
+@media (max-width: 768px) { .container { padding: 25px; } .title { font-size: 2rem; } .scheduleHeader, .scheduleRow { grid-template-columns: 1fr; gap: 5px; } }
+

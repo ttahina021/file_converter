@@ -93,7 +93,7 @@ export default function ImageConverterPage() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Convertisseur d'images</h1>
+        <h1 className={styles.title}>Convertisseur d&apos;images</h1>
         <p className={styles.description}>
           Convertissez vos images entre PNG, JPG, WebP et SVG
         </p>
@@ -161,7 +161,7 @@ export default function ImageConverterPage() {
         <div className={styles.infoBox}>
           <p className={styles.infoText}>
             ⚠️ <strong>Note :</strong> La conversion SVG vers les formats raster (PNG, JPG, WebP) 
-            peut prendre plus de temps. La conversion vers SVG n'est pas supportée depuis les formats raster.
+            peut prendre plus de temps. La conversion vers SVG n&apos;est pas supportée depuis les formats raster.
           </p>
         </div>
       </div>

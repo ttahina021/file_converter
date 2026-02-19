@@ -1,0 +1,12 @@
+# robots.txt pour ConviFree
+# https://convifree.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://convifree.com/sitemap.xml
+
+# Crawl-delay (optionnel, en secondes)
+Crawl-delay: 1
+
