@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 type HashType = 'md5' | 'sha256' | 'sha1' | 'sha512'
 export default function HashGeneratorPage() {
@@ -14,7 +15,7 @@ export default function HashGeneratorPage() {
     if (!input.trim()) { setError('Veuillez entrer du texte'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/generate-hash', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-hash', 
         { text: input, type: hashType }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.hash)

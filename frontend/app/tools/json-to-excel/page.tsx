@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import ExcelGrid from '../../components/ExcelGrid'
 import styles from './page.module.css'
 
@@ -121,7 +122,7 @@ export default function JsonToExcelPage() {
           fileName = 'converted.xlsx'
         }
 
-      const response = await axios.post('http://localhost:5000/api/convert/json-to-excel', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/json-to-excel', formData, {
         responseType: 'blob',
         headers: {
           'Content-Type': 'multipart/form-data',

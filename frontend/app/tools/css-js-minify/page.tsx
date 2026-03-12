@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 type FileType = 'css' | 'js'
 export default function CssJsMinifyPage() {
@@ -14,7 +15,7 @@ export default function CssJsMinifyPage() {
     if (!input.trim()) { setError(`Veuillez entrer du ${fileType.toUpperCase()}`); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/minify', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/minify', 
         { code: input, type: fileType }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.minified)

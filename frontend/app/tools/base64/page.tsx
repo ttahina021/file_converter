@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 type Operation = 'encode' | 'decode'
 export default function Base64Page() {
@@ -14,7 +15,7 @@ export default function Base64Page() {
     if (!input.trim()) { setError(`Veuillez entrer du texte à ${operation === 'encode' ? 'encoder' : 'décoder'}`); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/base64', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/base64`, 
         { text: input, operation }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.result)

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 export default function HtmlBeautifierPage() {
   const [input, setInput] = useState('')
@@ -12,7 +13,7 @@ export default function HtmlBeautifierPage() {
     if (!input.trim()) { setError('Veuillez entrer du HTML'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/beautify-html', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/beautify-html', 
         { html: input }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.beautified)

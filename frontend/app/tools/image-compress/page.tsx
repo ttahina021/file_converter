@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 export default function ImageCompressPage() {
   const [file, setFile] = useState<File | null>(null)
@@ -25,7 +26,7 @@ export default function ImageCompressPage() {
     setLoading(true); setError(null); setSuccess(false)
     try {
       const formData = new FormData(); formData.append('file', file); formData.append('quality', quality.toString())
-      const response = await axios.post('http://localhost:5000/api/convert/compress-image', formData, { responseType: 'blob', headers: { 'Content-Type': 'multipart/form-data' } })
+      const response = await axios.post(\${API_BASE_URL}/api/convert/compress-image', formData, { responseType: 'blob', headers: { 'Content-Type': 'multipart/form-data' } })
       const contentLength = response.headers['content-length']
       if (contentLength) setCompressedSize(parseInt(contentLength))
       const url = window.URL.createObjectURL(new Blob([response.data]))

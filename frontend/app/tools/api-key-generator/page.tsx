@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 export default function ApiKeyGeneratorPage() {
   const [length, setLength] = useState(32)
@@ -13,7 +14,7 @@ export default function ApiKeyGeneratorPage() {
     if (length < 8 || length > 128) { setError('La longueur doit être entre 8 et 128 caractères'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/generate-api-key', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-api-key`, 
         { length, prefix }, 
         { headers: { 'Content-Type': 'application/json' } })
       setApiKeys([response.data.apiKey])

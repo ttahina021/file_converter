@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 export default function JsonFormatterPage() {
   const [input, setInput] = useState('')
@@ -13,7 +14,7 @@ export default function JsonFormatterPage() {
     if (!input.trim()) { setError('Veuillez entrer du JSON'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/format-json', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/format-json`, 
         { json: input, indent }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.formatted)
@@ -27,7 +28,7 @@ export default function JsonFormatterPage() {
     if (!input.trim()) { setError('Veuillez entrer du JSON'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/minify-json', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/minify-json`, 
         { json: input }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.minified)

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 
 export default function EmploymentContractGeneratorPage() {
@@ -70,7 +71,7 @@ export default function EmploymentContractGeneratorPage() {
         notes
       }
 
-      const response = await axios.post('http://localhost:5000/api/convert/generate-employment-contract', contractData, {
+      const response = await axios.post(\${API_BASE_URL}/api/convert/generate-employment-contract', contractData, {
         responseType: 'blob',
         headers: { 'Content-Type': 'application/json' }
       })

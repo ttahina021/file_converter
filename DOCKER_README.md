@@ -40,6 +40,18 @@
 - Le CORS est configuré pour autoriser les requêtes depuis `http://localhost:3000` et `http://frontend:3000`
 - Les variables d'environnement sont définies dans le docker-compose.yml
 - Les builds sont optimisés avec les fichiers .dockerignore
+- **URL API configurée par variable d'environnement** : `NEXT_PUBLIC_API_URL` pointe vers `http://backend:80` dans Docker
+- **Variable centralisée** : Tous les appels API utilisent `API_BASE_URL` depuis `frontend/lib/api.ts`
+
+### Variables d'environnement
+
+#### Frontend
+- `NODE_ENV=production` : Environnement de production
+- `NEXT_PUBLIC_API_URL=http://backend:80` : URL de l'API backend dans Docker
+
+#### Backend
+- `ASPNETCORE_ENVIRONMENT=Production` : Environnement de production
+- `ASPNETCORE_URLS=http://+:80` : URLs d'écoute
 
 ### Dépannage
 
@@ -59,3 +71,9 @@
    ```bash
    docker-compose down -v --rmi all
    ```
+
+### Notes importantes
+
+- L'URL API est maintenant entièrement configurable via variable d'environnement
+- En développement local, utilisez `NEXT_PUBLIC_API_URL=http://localhost:5000`
+- En production Docker, utilisez `NEXT_PUBLIC_API_URL=http://backend:80`

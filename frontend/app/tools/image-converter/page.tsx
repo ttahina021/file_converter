@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 
 type ImageFormat = 'png' | 'jpg' | 'webp' | 'svg'
@@ -61,7 +62,7 @@ export default function ImageConverterPage() {
       formData.append('file', file)
       formData.append('outputFormat', outputFormat)
 
-      const response = await axios.post('http://localhost:5000/api/convert/image', formData, {
+      const response = await axios.post(\${API_BASE_URL}/api/convert/image', formData, {
         responseType: 'blob',
         headers: {
           'Content-Type': 'multipart/form-data',

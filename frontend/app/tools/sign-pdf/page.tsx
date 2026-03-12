@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 
 type SignaturePosition = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'center'
@@ -82,7 +83,7 @@ export default function SignPdfPage() {
       formData.append('position', position)
       formData.append('pageNumber', pageNumber.toString())
 
-      const response = await axios.post('http://localhost:5000/api/convert/sign-pdf', formData, {
+      const response = await axios.post(\${API_BASE_URL}/api/convert/sign-pdf', formData, {
         responseType: 'blob',
         headers: {
           'Content-Type': 'multipart/form-data',

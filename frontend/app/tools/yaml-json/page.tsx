@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 type Direction = 'yaml-to-json' | 'json-to-yaml'
 export default function YamlJsonPage() {
@@ -28,7 +29,7 @@ export default function YamlJsonPage() {
     try {
       const formData = new FormData(); formData.append('file', file); formData.append('direction', direction)
       const endpoint = direction === 'yaml-to-json' ? 'yaml-to-json' : 'json-to-yaml'
-      const response = await axios.post(`http://localhost:5000/api/convert/${endpoint}`, formData, { responseType: 'blob', headers: { 'Content-Type': 'multipart/form-data' } })
+      const response = await axios.post(`${API_BASE_URL}/api/convert/${endpoint}`, formData, { responseType: 'blob', headers: { 'Content-Type': 'multipart/form-data' } })
       const url = window.URL.createObjectURL(new Blob([response.data]))
       const link = document.createElement('a')
       link.href = url

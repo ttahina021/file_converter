@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import { useCurrency } from '../../contexts/CurrencyContext'
 import styles from './page.module.css'
 
@@ -76,7 +77,7 @@ export default function QuoteGeneratorPage() {
         total: calculateTotal()
       }
 
-      const response = await axios.post('http://localhost:5000/api/convert/generate-quote', quoteData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-quote', quoteData, {
         responseType: 'blob',
         headers: { 'Content-Type': 'application/json' }
       })

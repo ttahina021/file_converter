@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 export default function XmlFormatterPage() {
   const [input, setInput] = useState('')
@@ -12,7 +13,7 @@ export default function XmlFormatterPage() {
     if (!input.trim()) { setError('Veuillez entrer du XML'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/format-xml', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/format-xml', 
         { xml: input }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.formatted)

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 type ResizeMode = 'custom' | 'preset'
 export default function ImageResizePage() {
@@ -36,7 +37,7 @@ export default function ImageResizePage() {
         formData.append('width', w.toString()); formData.append('height', h.toString())
       }
       formData.append('maintainAspectRatio', maintainAspectRatio.toString())
-      const response = await axios.post('http://localhost:5000/api/convert/resize-image', formData, { responseType: 'blob', headers: { 'Content-Type': 'multipart/form-data' } })
+      const response = await axios.post(\${API_BASE_URL}/api/convert/resize-image', formData, { responseType: 'blob', headers: { 'Content-Type': 'multipart/form-data' } })
       const url = window.URL.createObjectURL(new Blob([response.data]))
       const link = document.createElement('a'); link.href = url; link.setAttribute('download', file.name.replace(/\.[^.]+$/, '-redimensionnee' + file.name.match(/\.[^.]+$/)?.[0]))
       document.body.appendChild(link); link.click(); link.remove(); window.URL.revokeObjectURL(url)

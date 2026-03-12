@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 
 type CompressionLevel = 'low' | 'medium' | 'high'
@@ -46,7 +47,7 @@ export default function CompressPdfPage() {
       formData.append('file', file)
       formData.append('compressionLevel', compressionLevel)
 
-      const response = await axios.post('http://localhost:5000/api/convert/compress-pdf', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/compress-pdf', formData, {
         responseType: 'blob',
         headers: {
           'Content-Type': 'multipart/form-data',

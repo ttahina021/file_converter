@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 export default function FileComparatorPage() {
   const [file1, setFile1] = useState<File | null>(null)
@@ -19,7 +20,7 @@ export default function FileComparatorPage() {
     setLoading(true); setError(null); setResult(null)
     try {
       const formData = new FormData(); formData.append('file1', file1); formData.append('file2', file2)
-      const response = await axios.post('http://localhost:5000/api/convert/compare-files', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+      const response = await axios.post(`${API_BASE_URL}/api/convert/compare-files`, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
       setResult(response.data.message || 'Comparaison terminée')
     } catch (err: any) { setError(err.response?.data?.message || 'Une erreur est survenue') } finally { setLoading(false) }
   }

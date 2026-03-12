@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 
 export default function ProtectPdfPage() {
@@ -58,7 +59,7 @@ export default function ProtectPdfPage() {
       formData.append('file', file)
       formData.append('password', password)
 
-      const response = await axios.post('http://localhost:5000/api/convert/protect-pdf', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/protect-pdf', formData, {
         responseType: 'blob',
         headers: {
           'Content-Type': 'multipart/form-data',

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
 export default function UuidGeneratorPage() {
   const [uuids, setUuids] = useState<string[]>([])
@@ -12,7 +13,7 @@ export default function UuidGeneratorPage() {
     if (count < 1 || count > 100) { setError('Le nombre doit être entre 1 et 100'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/generate-uuid', 
+      const response = await axios.post(\${API_BASE_URL}/api/convert/generate-uuid', 
         { count }, 
         { headers: { 'Content-Type': 'application/json' } })
       setUuids(response.data.uuids)
