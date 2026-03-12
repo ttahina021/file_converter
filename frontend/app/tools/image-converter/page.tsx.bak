@@ -62,7 +62,7 @@ export default function ImageConverterPage() {
       formData.append('file', file)
       formData.append('outputFormat', outputFormat)
 
-      const response = await axios.post(\${API_BASE_URL}/api/convert/image', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/image`, formData, {
         responseType: 'blob',
         headers: {
           'Content-Type': 'multipart/form-data',

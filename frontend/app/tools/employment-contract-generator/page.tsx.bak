@@ -71,7 +71,7 @@ export default function EmploymentContractGeneratorPage() {
         notes
       }
 
-      const response = await axios.post(\${API_BASE_URL}/api/convert/generate-employment-contract', contractData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-employment-contract`, contractData, {
         responseType: 'blob',
         headers: { 'Content-Type': 'application/json' }
       })

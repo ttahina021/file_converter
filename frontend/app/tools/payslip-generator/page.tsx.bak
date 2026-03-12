@@ -63,7 +63,7 @@ export default function PayslipGeneratorPage() {
         }
       }
 
-      const response = await axios.post(\${API_BASE_URL}/api/convert/generate-payslip', payslipData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-payslip/`, payslipData, {
         responseType: 'blob',
         headers: { 'Content-Type': 'application/json' }
       })

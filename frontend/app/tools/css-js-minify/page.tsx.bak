@@ -3,7 +3,9 @@ import { useState } from 'react'
 import axios from 'axios'
 import { API_BASE_URL } from '@/lib/api'
 import styles from './page.module.css'
+
 type FileType = 'css' | 'js'
+
 export default function CssJsMinifyPage() {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
@@ -15,7 +17,7 @@ export default function CssJsMinifyPage() {
     if (!input.trim()) { setError(`Veuillez entrer du ${fileType.toUpperCase()}`); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/convert/minify', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/minify`, 
         { code: input, type: fileType }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.minified)
@@ -31,10 +33,10 @@ export default function CssJsMinifyPage() {
         <h1 className={styles.title}>CSS / JS Minify</h1>
         <p className={styles.description}>Minifiez vos fichiers CSS et JavaScript</p>
         <div className={styles.typeSelector}>
-          <button className={`${styles.typeButton} ${fileType === 'css' ? styles.typeButtonActive : ''}`} onClick={() => { setFileType('css'); setInput(''); setOutput('') }}>
+          <button className={`${styles.typeButton} ${fileType === 'css' ? styles.typeButtonActive : ''}`} onClick={() => { setFileType('css'); setInput(''); setOutput(''); }}>
             CSS
           </button>
-          <button className={`${styles.typeButton} ${fileType === 'js' ? styles.typeButtonActive : ''}`} onClick={() => { setFileType('js'); setInput(''); setOutput('') }}>
+          <button className={`${styles.typeButton} ${fileType === 'js' ? styles.typeButtonActive : ''}`} onClick={() => { setFileType('js'); setInput(''); setOutput(''); }}>
             JavaScript
           </button>
         </div>

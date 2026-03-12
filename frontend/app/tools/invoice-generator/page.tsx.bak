@@ -77,7 +77,7 @@ export default function InvoiceGeneratorPage() {
         total: calculateTotal()
       }
 
-      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-invoice', invoiceData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-invoice`, invoiceData, {
         responseType: 'blob',
         headers: { 'Content-Type': 'application/json' }
       })

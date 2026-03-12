@@ -13,7 +13,7 @@ export default function UuidGeneratorPage() {
     if (count < 1 || count > 100) { setError('Le nombre doit être entre 1 et 100'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post(\${API_BASE_URL}/api/convert/generate-uuid', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-uuid`, 
         { count }, 
         { headers: { 'Content-Type': 'application/json' } })
       setUuids(response.data.uuids)

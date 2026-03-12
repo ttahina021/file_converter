@@ -15,7 +15,7 @@ export default function HashGeneratorPage() {
     if (!input.trim()) { setError('Veuillez entrer du texte'); return }
     setLoading(true); setError(null)
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-hash', 
+      const response = await axios.post(`${API_BASE_URL}/api/convert/generate-hash`, 
         { text: input, type: hashType }, 
         { headers: { 'Content-Type': 'application/json' } })
       setOutput(response.data.hash)

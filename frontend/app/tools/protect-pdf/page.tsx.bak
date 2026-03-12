@@ -59,7 +59,7 @@ export default function ProtectPdfPage() {
       formData.append('file', file)
       formData.append('password', password)
 
-      const response = await axios.post(`${API_BASE_URL}/api/convert/protect-pdf', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/convert/protect-pdf`, formData, {
         responseType: 'blob',
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -217,4 +217,3 @@ export default function ProtectPdfPage() {
     </main>
   )
 }
-
